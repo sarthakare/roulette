@@ -28,7 +28,7 @@ const GameScreen = () => {
 
         <div className="flex items-center space-x-2">
           <input
-            className="rounded px-2 py-1 text-white bg-black text-xs sm:text-base w-28 sm:w-auto"
+            className="hidden sm:block rounded px-2 py-1 text-white bg-black text-xs sm:text-base w-28 sm:w-auto"
             placeholder="Search for a Sport, Game or Team"
           />
           <button className="bg-orange-500 text-white px-2 sm:px-4 py-1 rounded-full font-bold text-xs sm:text-base">
