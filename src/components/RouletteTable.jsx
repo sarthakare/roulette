@@ -53,15 +53,8 @@ const RouletteTable = ({ bets = [], onPlaceBet }) => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center mt-8">
-      {/* Responsive Table grid */}
-      <div
-        className="grid grid-cols-15 grid-rows-4 gap-1 select-none overflow-x-auto"
-        style={{
-          width: '100%',
-          minWidth: 600,
-          maxWidth: '100vw',
-        }}
-      >
+      {/* Table grid */}
+      <div className="grid grid-cols-15 grid-rows-4 gap-1 select-none">
         {/* 0 cell */}
         <div
           className="row-span-3 col-span-1 flex items-center justify-center bg-green-600 text-white font-bold rounded-l-lg text-xl cursor-pointer relative hover:scale-105 transition shadow-lg border border-gray-400"
@@ -81,7 +74,7 @@ const RouletteTable = ({ bets = [], onPlaceBet }) => {
               key={num}
               className={`row-start-${rowIdx + 1} col-start-${
                 colIdx + 2
-              } flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 font-bold text-white text-base sm:text-lg cursor-pointer relative rounded ${
+              } flex items-center justify-center h-12 w-12 font-bold text-white text-lg cursor-pointer relative rounded ${
                 colors[num]
               } hover:scale-110 transition shadow-lg border border-gray-400`}
               onClick={() => onPlaceBet && onPlaceBet(num)}
@@ -100,7 +93,7 @@ const RouletteTable = ({ bets = [], onPlaceBet }) => {
         {[1, 2, 3].map((row) => (
           <div
             key={row}
-            className={`[grid-row-start:${row}] [grid-column-start:14] flex items-center justify-center h-10 w-12 sm:h-12 sm:w-14 bg-[#fff0a9] text-[#d32f2f] font-bold text-sm sm:text-base rounded-r-lg border border-gray-400 cursor-pointer hover:bg-yellow-300 transition relative`}
+            className={`[grid-row-start:${row}] [grid-column-start:14] flex items-center justify-center h-12 w-14 bg-[#fff0a9] text-[#d32f2f] font-bold text-base rounded-r-lg border border-gray-400 cursor-pointer hover:bg-yellow-300 transition relative`}
             onClick={() => onPlaceBet && onPlaceBet('2to1-' + row)}
           >
             2to1
@@ -115,7 +108,7 @@ const RouletteTable = ({ bets = [], onPlaceBet }) => {
         {colLabels.map((label, idx) => (
           <div
             key={label}
-            className={`row-start-4 col-start-${2 + idx * 4} col-span-4 flex items-center justify-center h-8 sm:h-10 bg-[#fff0a9] text-[#d32f2f] font-bold text-sm sm:text-base border border-gray-400 cursor-pointer hover:bg-yellow-300 transition relative`}
+            className={`row-start-4 col-start-${2 + idx * 4} col-span-4 flex items-center justify-center h-10 bg-[#fff0a9] text-[#d32f2f] font-bold text-base border border-gray-400 cursor-pointer hover:bg-yellow-300 transition relative`}
             onClick={() => onPlaceBet && onPlaceBet(label)}
           >
             {label}
@@ -129,13 +122,13 @@ const RouletteTable = ({ bets = [], onPlaceBet }) => {
         {bottomLabels.map((label, idx) => (
           <div
             key={label}
-            className={`row-start-5 col-start-${2 + idx * 2} col-span-2 flex items-center justify-center h-8 sm:h-10 ${
+            className={`row-start-5 col-start-${2 + idx * 2} col-span-2 flex items-center justify-center h-10 ${
               label === "RED"
                 ? "bg-red-600 text-white"
                 : label === "BLACK"
                 ? "bg-black text-white"
                 : "bg-[#fff0a9] text-[#d32f2f]"
-            } font-bold text-sm sm:text-base border border-gray-400 cursor-pointer hover:bg-yellow-300 transition relative`}
+            } font-bold text-base border border-gray-400 cursor-pointer hover:bg-yellow-300 transition relative`}
             onClick={() => onPlaceBet && onPlaceBet(label)}
           >
             {label}
