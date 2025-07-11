@@ -201,7 +201,7 @@ const GameComponent = () => {
             {/* Winner Crown and Number */}
             {showWinner && (
               <div
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 mb-4 flex items-center px-12 py-6 rounded-2xl z-10"
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 mb-4 flex items-center px-4 sm:px-8 md:px-12 py-4 sm:py-6 rounded-2xl z-10 max-w-[90vw]"
                 style={{
                   background: "rgba(20,20,20,0.92)",
                   boxShadow: "0 4px 24px 0 rgba(0,0,0,0.5)",
@@ -210,10 +210,10 @@ const GameComponent = () => {
                 <img
                   src={crownImg}
                   alt="Winner"
-                  className="w-20 h-20 mr-6 drop-shadow-lg"
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mr-2 sm:mr-4 md:mr-6 drop-shadow-lg flex-shrink-0"
                 />
                 <span
-                  className="text-6xl font-extrabold"
+                  className="text-3xl sm:text-5xl md:text-6xl font-extrabold truncate max-w-[40vw] sm:max-w-[20vw] text-ellipsis"
                   style={{ color: "#FFD700", textShadow: "0 4px 16px #000" }}
                 >
                   {targetNumber}
@@ -223,7 +223,7 @@ const GameComponent = () => {
             {/* New Round Image */}
             {showNewRound && (
               <div
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 mb-4 flex flex-col items-center px-12 py-6 rounded-2xl z-10"
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 mb-4 flex flex-col items-center px-4 sm:px-8 md:px-12 py-4 sm:py-6 rounded-2xl z-10"
                 style={{
                   background: "rgba(20,20,20,0.92)",
                   boxShadow: "0 4px 24px 0 rgba(0,0,0,0.5)",
@@ -232,26 +232,26 @@ const GameComponent = () => {
                 <img
                   src={newRoundImg}
                   alt="New Round"
-                  className="w-1/2 h-1/2 object-contain drop-shadow-lg"
+                  className="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 object-contain drop-shadow-lg"
                 />
               </div>
             )}
             {/* Place Bet Text */}
             {showPlaceBet && (
               <div
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 mb-4 flex flex-col items-center px-12 py-6 rounded-2xl z-10"
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 mb-4 flex flex-col items-center px-4 sm:px-8 md:px-12 py-4 sm:py-6 rounded-2xl z-10 max-w-[90vw]"
                 style={{
                   background: "rgba(20,20,20,0.92)",
                   boxShadow: "0 4px 24px 0 rgba(0,0,0,0.5)",
                 }}
               >
                 <span
-                  className="text-4xl font-extrabold text-white tracking-wider mb-2"
+                  className="text-lg sm:text-2xl md:text-4xl font-extrabold text-white tracking-wider mb-2 text-center break-words"
                   style={{ letterSpacing: "0.1em" }}
                 >
                   Place your bet!
                 </span>
-                <span className="text-2xl font-semibold text-gray-200">
+                <span className="text-base sm:text-xl md:text-2xl font-semibold text-gray-200 text-center">
                   Placed bets
                 </span>
               </div>
@@ -272,72 +272,69 @@ const GameComponent = () => {
 
       {/* Betting Area */}
       <div className="w-full bg-[#55585b] text-white rounded-b-lg shadow-lg px-6 py-4 flex flex-col items-center mt-0">
-        <div className="w-full flex flex-row items-center justify-between mb-4">
-          <div>
-            <div className="text-base font-semibold">
-              Total Bet : {totalBet}
-            </div>
-            <div className="text-xs font-normal">
-              Min Bet: 10 | Max Bet:10000
-            </div>
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between mb-4 gap-4 sm:gap-0">
+          <div className="flex flex-col items-start w-full sm:w-auto">
+            <div className="text-sm sm:text-base font-semibold">Total Bet : {totalBet}</div>
+            <div className="text-xs font-normal">Min Bet: 10 | Max Bet:10000</div>
           </div>
-          <div className="flex flex-row space-x-8">
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-semibold">Remove</span>
+          <div className="flex flex-row flex-wrap gap-2 sm:gap-4 md:gap-8 items-center justify-center w-full sm:w-auto">
+            <div className="flex flex-col items-center min-w-[60px]">
+              <span className="text-xs sm:text-sm md:text-lg font-semibold">Remove</span>
               <button
                 onClick={handleRemove}
-                className="w-12 h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
               >
-                <span className="text-2xl">✖</span>
+                <span className="text-lg sm:text-2xl">✖</span>
               </button>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-semibold">Rebet</span>
+            <div className="flex flex-col items-center min-w-[60px]">
+              <span className="text-xs sm:text-sm md:text-lg font-semibold">Rebet</span>
               <button
                 onClick={handleRebet}
-                className="w-12 h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
               >
-                <span className="text-2xl">⟳</span>
+                <span className="text-lg sm:text-2xl">⟳</span>
               </button>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-semibold">Undo</span>
+            <div className="flex flex-col items-center min-w-[60px]">
+              <span className="text-xs sm:text-sm md:text-lg font-semibold">Undo</span>
               <button
                 onClick={handleUndo}
-                className="w-12 h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
               >
-                <span className="text-2xl">↩</span>
+                <span className="text-lg sm:text-2xl">↩</span>
               </button>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-semibold">Double</span>
+            <div className="flex flex-col items-center min-w-[60px]">
+              <span className="text-xs sm:text-sm md:text-lg font-semibold">Double</span>
               <button
                 onClick={handleDouble}
-                className="w-12 h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#222] flex items-center justify-center shadow-lg mt-1 hover:bg-[#333] transition"
               >
-                <span className="text-lg font-bold">2X</span>
+                <span className="text-base sm:text-lg font-bold">2X</span>
               </button>
             </div>
           </div>
-          <div className="text-right">
-            <div className="text-base font-semibold">Last Win : {lastWin}</div>
+          <div className="text-right w-full sm:w-auto">
+            <div className="text-xs sm:text-base font-semibold">Last Win : {lastWin}</div>
           </div>
         </div>
         {/* Chips Row */}
-        <div className="flex flex-row items-center justify-center space-x-8 mt-2">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-8 mt-2 w-full">
           {initialChips.map((chip) => (
             <div
               key={chip.value}
-              className={`relative w-16 h-16 flex items-center justify-center cursor-pointer transition-transform drop-shadow-lg group ${
+              className={`relative flex items-center justify-center cursor-pointer transition-transform drop-shadow-lg group ${
                 selectedChip.value === chip.value
                   ? "ring-4 ring-yellow-400 scale-105 z-10"
                   : "hover:scale-105"
               }`}
+              style={{ width: '3.5rem', height: '3.5rem', minWidth: 0, minHeight: 0 }}
               onClick={() => setSelectedChip(chip)}
             >
-              <img src={chip.img} alt={chip.label} className="w-16 h-16" />
+              <img src={chip.img} alt={chip.label} className="w-full h-full object-contain" />
               <span
-                className="absolute text-white font-bold select-none transition-all duration-200 text-lg"
+                className="absolute text-white font-bold select-none transition-all duration-200 text-xs sm:text-base md:text-lg px-1 sm:px-2"
                 style={{ textShadow: "0 2px 8px #000" }}
               >
                 {chip.label}
